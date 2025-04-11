@@ -5,12 +5,12 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home', ['title' => 'Dashboard', 'products' => Product::all()]);
+    return view('home', ['title' => 'Home', 'products' => Product::all()]);
 });
 
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/{slug}', function ($slug) {
     $product = Product::with('category', 'seller')->where('slug', $slug)->firstOrFail();
-    return view('product', ['title' => $product->name, 'product' => $product]);
+    return view('product', ['title' => 'Product', 'product' => $product]);
 });

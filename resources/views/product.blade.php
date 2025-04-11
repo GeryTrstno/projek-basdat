@@ -22,8 +22,12 @@
                             Rp {{ number_format($product['price'], 0, ',', '.') }}
                         </p>
                     </div>
-
-                    <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
+                    @if($product['amount'] <= 10)
+                        <p class="mt-6 mb-1 text-red-500">Stok: {{ $product['amount'] }}</p>
+                    @else
+                        <p class="mt-6 mb-1">Stok: {{ $product['amount'] }}</p>
+                    @endif
+                    <div class="sm:gap-4 sm:items-center sm:flex">
                         <a
                             href="#"
                             title=""
@@ -53,7 +57,7 @@
 
                     <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800"/>
 
-                    <p class="mb-6 text-gray-500 dark:text-gray-600">
+                    <p class="mb-6 text-gray-500 dark:text-gray-600 mr-5">
                         {{ $product['description'] }}
                     </p>
                 </div>
