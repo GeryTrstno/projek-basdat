@@ -1,12 +1,12 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <section class="py-8 bg-white md:py-16 dark:bg-gray-200 antialiased rounded-2xl">
+    <section class="py-8 bg-white md:py-16  antialiased rounded-2xl">
         <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
                 <div class="flex justify-center shrink-0 max-w-md lg:max-w-lg mx-auto">
                     <img
                         class="w-full hidden dark:block max-w-[300px] sm:max-w-[400px] h-auto object-contain"
-                        src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt=""/>
+                        src="img/jam-tangan.jpeg" alt=""/>
                 </div>
 
                 <div class="mt-6 sm:mt-8 lg:mt-0">
@@ -22,6 +22,7 @@
                             Rp {{ number_format($product['price'], 0, ',', '.') }}
                         </p>
                     </div>
+
                     @if($product['amount'] <= 10)
                         <p class="mt-6 mb-1 text-red-500">Stok: {{ $product['amount'] }}</p>
                     @else
@@ -59,6 +60,26 @@
 
                     <p class="mb-6 text-gray-500 dark:text-gray-600 mr-5">
                         {{ $product['description'] }}
+
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam hic incidunt minus
+                        natus, nemo reprehenderit sit! Aliquid consequatur corporis culpa cum odit quibusdam repudiandae
+                        similique, soluta sunt suscipit. Minima?
+
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto atque consequatur cum
+                        cupiditate est natus non, praesentium. Adipisci commodi delectus doloremque eligendi ex
+                        molestiae nemo nostrum obcaecati recusandae rem.
+
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequatur consequuntur
+                        eligendi modi perspiciatis tenetur velit. Eveniet fuga impedit ipsa magni molestiae nihil nisi
+                        nulla quia suscipit tempora veniam, voluptatibus?
+
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam amet at consequatur
+                        deleniti eos, et, excepturi fuga illo illum, iste laudantium magni nihil nobis officia optio
+                        placeat voluptates voluptatibus.
+
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis fugit nemo non. Accusantium
+                        asperiores dolor doloribus eius laudantium nulla perferendis recusandae tempora, voluptates. A
+                        alias aspernatur dignissimos dolorum ex sunt!
                     </p>
                 </div>
             </div>

@@ -6,11 +6,11 @@
                 @foreach($products as $product)
                     <a href="/{{ $product['slug'] }}">
                         <article
-                            class="h-62 sm:h-80 p-4 sm:p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-100 dark:border-gray-50 transition hover:shadow-lg">
+                            class="h-62 sm:h-80 p-4 sm:p-6 bg-white rounded-lg border border-gray-200 shadow-md  dark:border-gray-50 transition hover:shadow-lg">
 
                             <div class="flex justify-center mb-3">
                                 <img class="w-full max-w-[140px] sm:max-w-[200px] h-auto object-contain"
-                                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
+                                     src="img/jam-tangan.jpeg"
                                      alt="{{ $product['name'] }}"/>
                             </div>
 
