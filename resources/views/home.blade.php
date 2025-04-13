@@ -10,7 +10,7 @@
 
                             <div class="flex justify-center mb-3">
                                 <img class="w-full max-w-[140px] sm:max-w-[200px] h-auto object-contain"
-                                     src="{{ asset('storage/' . $product['image']) }}"
+                                     src="{{ asset('storage/' . $product['image']) }}" onerror="this.onerror=null;this.src='https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg';"
                                      alt="{{ $product['name'] }}"/>
                             </div>
 

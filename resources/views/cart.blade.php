@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <section class="bg-white py-8 antialiased dark:bg-gray-200 rounded-2xl">
+    <section class="bg-white py-8 antialiased   :bg-gray-200 rounded-2xl">
         <div class="py-6 px-4 sm:px-6 lg:px-8 mx-auto max-w-screen-xl lg:py-8">
             <h2 class="text-xl font-semibold text-gray-900 sm:text-2xl">Keranjang Belanja</h2>
             <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
@@ -11,8 +11,8 @@
                                 class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm  md:p-6">
                                 <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                                     <a href="#" class="w-20 shrink-0 md:order-1">
-                                        <img class="hidden h-20 w-20 dark:block"
-                                             src="{{ asset('storage/' . $cart->product['image']) }}"
+                                        <img class="block h-20 w-20   :block"
+                                             src="{{ asset('storage/' . $cart->product['image']) }}" onerror="this.onerror=null;this.src='https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg';"
                                              alt="imac image"/>
                                     </a>
 
@@ -23,8 +23,8 @@
                                                 @method("PATCH")
                                                 <button type="submit" id="decrement-button-5"
                                                         data-input-counter-decrement="counter-input-5"
-                                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-                                                    <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white"
+                                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100   :border-gray-600   :bg-gray-700   :hover:bg-gray-600   :focus:ring-gray-700">
+                                                    <svg class="h-2.5 w-2.5 text-gray-900   :text-white"
                                                          aria-hidden="true"
                                                          xmlns="http://www.w3.org/2000/svg" fill="none"
                                                          viewBox="0 0 18 2">
@@ -41,8 +41,8 @@
                                                 @method("PATCH")
                                                 <button type="submit" id="increment-button-5"
                                                         data-input-counter-increment="counter-input-5"
-                                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-                                                    <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white"
+                                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100   :border-gray-600   :bg-gray-700   :hover:bg-gray-600   :focus:ring-gray-700">
+                                                    <svg class="h-2.5 w-2.5 text-gray-900   :text-white"
                                                          aria-hidden="true"
                                                          xmlns="http://www.w3.org/2000/svg" fill="none"
                                                          viewBox="0 0 18 18">
@@ -54,7 +54,7 @@
                                             </form>
                                         </div>
                                         <div class="text-end md:order-4 md:w-32">
-                                            <p class="text-base font-bold text-gray-900  text-sm">
+                                            <p class=" font-bold text-gray-900  text-sm">
                                                 Rp {{ number_format($cart->product->price * $cart->quantity, 0, ',', '.') }}</p>
                                         </div>
                                     </div>
@@ -69,7 +69,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                        class="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500">
+                                                        class="inline-flex items-center text-sm font-medium text-red-600 hover:underline   :text-red-500">
                                                     <svg class="me-1.5 h-5 w-5" aria-hidden="true"
                                                          xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                          fill="none"
@@ -114,7 +114,7 @@
                                     </dl>
                                 </div>
 
-                                <dl class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
+                                <dl class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2   :border-gray-700">
                                     <dt class="text-base font-bold text-gray-900 ">Total</dt>
                                     <dd class="text-base font-bold text-gray-900 ">
                                         Rp {{ number_format($total, 0, ',', '.') }}</dd>
@@ -124,7 +124,7 @@
                             <div class="flex justify-center">
                                 <button
                                     type="submit"
-                                    class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                    class="py-2.5 px-5 text-sm font-medium  focus:outline-none  rounded-lg border  hover:text-primary-700 focus:z-10 focus:ring-4    focus:ring-gray-700   bg-gray-800   text-gray-200   border-gray-600   hover:text-white   hover:bg-gray-700"
                                 >
                                     Lanjut Pembayaran
                                 </button>
@@ -134,7 +134,7 @@
                             <div class="flex items-center justify-center gap-2">
                                 <span class="text-sm font-normal text-gray-500  "> atau </span>
                                 <a href="/" title=""
-                                   class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500">
+                                   class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline   :text-primary-500">
                                     Lanjut Belanja
                                     <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                          fill="none"
