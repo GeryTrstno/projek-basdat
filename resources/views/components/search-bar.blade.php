@@ -1,4 +1,4 @@
-<form class="hidden md:flex items-center mx-auto w-full max-w-2xl px-4">
+<form action="/" class="hidden md:flex items-center mx-auto w-full max-w-2xl px-4">
     <div class="relative w-full">
         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
             <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"

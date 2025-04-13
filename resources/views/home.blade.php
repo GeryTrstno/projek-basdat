@@ -10,7 +10,7 @@
 
                             <div class="flex justify-center mb-3">
                                 <img class="w-full max-w-[140px] sm:max-w-[200px] h-auto object-contain"
-                                     src="img/jam-tangan.jpeg"
+                                     src="{{ asset('storage/' . $product['image']) }}"
                                      alt="{{ $product['name'] }}"/>
                             </div>
 

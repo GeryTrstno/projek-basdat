@@ -6,7 +6,7 @@
                 <div class="flex justify-center shrink-0 max-w-md lg:max-w-lg mx-auto">
                     <img
                         class="w-full hidden dark:block max-w-[300px] sm:max-w-[400px] h-auto object-contain"
-                        src="img/jam-tangan.jpeg" alt=""/>
+                        src="{{ asset('storage/' . $product['image']) }}" alt=""/>
                 </div>
 
                 <div class="mt-6 sm:mt-8 lg:mt-0">
@@ -29,57 +29,40 @@
                         <p class="mt-6 mb-1">Stok: {{ $product['amount'] }}</p>
                     @endif
                     <div class="sm:gap-4 sm:items-center sm:flex">
-                        <a
-                            href="#"
-                            title=""
-                            class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-                            role="button"
-                        >
-                            <svg
-                                class="w-5 h-5 -ms-2 me-2"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                fill="none"
-                                viewBox="0 0 24 24"
+                        <form action="{{ route('cart.store') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product['id'] }}">
+                            <button
+                                type="submit"
+                                class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                             >
-                                <path
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"
-                                />
-                            </svg>
-                            Tambahkan Keranjang
-                        </a>
+                                <svg
+                                    class="w-5 h-5 -ms-2 me-2"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke="currentColor"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+                                    />
+                                </svg>
+                                Tambahkan Keranjang
+                            </button>
+                        </form>
+
                     </div>
 
                     <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800"/>
 
                     <p class="mb-6 text-gray-500 dark:text-gray-600 mr-5">
                         {{ $product['description'] }}
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam hic incidunt minus
-                        natus, nemo reprehenderit sit! Aliquid consequatur corporis culpa cum odit quibusdam repudiandae
-                        similique, soluta sunt suscipit. Minima?
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto atque consequatur cum
-                        cupiditate est natus non, praesentium. Adipisci commodi delectus doloremque eligendi ex
-                        molestiae nemo nostrum obcaecati recusandae rem.
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequatur consequuntur
-                        eligendi modi perspiciatis tenetur velit. Eveniet fuga impedit ipsa magni molestiae nihil nisi
-                        nulla quia suscipit tempora veniam, voluptatibus?
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam amet at consequatur
-                        deleniti eos, et, excepturi fuga illo illum, iste laudantium magni nihil nobis officia optio
-                        placeat voluptates voluptatibus.
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis fugit nemo non. Accusantium
-                        asperiores dolor doloribus eius laudantium nulla perferendis recusandae tempora, voluptates. A
-                        alias aspernatur dignissimos dolorum ex sunt!
                     </p>
                 </div>
             </div>
