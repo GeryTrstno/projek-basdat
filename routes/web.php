@@ -26,28 +26,28 @@ Route::get('/home', function () {
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
-Route::resource('products', ProductController::class);
-
 Route::get('/search', [SearchController::class, 'index'])->name('search');
-
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
-Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
-Route::patch('/cart/{id}/increment', [CartController::class, 'increment'])->name('cart.increment');
-Route::patch('/cart/{id}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
-
-Route::get('/shop', function () {
-    return view('shop', ['title' => 'Create Product', 'categories' => Category::all()]);
-});
-
-Route::get('/edit', function () {
-    return view('edit', ['title' => 'Edit Product']);
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('products', ProductController::class);
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+    Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::patch('/cart/{id}/increment', [CartController::class, 'increment'])->name('cart.increment');
+    Route::patch('/cart/{id}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
+
+    Route::get('/shop', function () {
+       return view('shop', ['title' => 'Create Product', 'categories' => Category::all()]);
+    });
+
+    Route::get('/edit', function () {
+        return view('edit', ['title' => 'Edit Product']);
+    });
 });
 
 
@@ -56,4 +56,4 @@ require __DIR__.'/auth.php';
 Route::get('/{slug}', function ($slug) {
     $product = Product::with('category', 'seller')->where('slug', $slug)->firstOrFail();
     return view('product', ['title' => 'Product', 'product' => $product]);
-});
+})->middleware(['auth', 'verified']);
