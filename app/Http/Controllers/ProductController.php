@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('shop', [
+        return view('create', [
             'title' => 'Tambah Produk Baru',
             'categories' => $categories
         ]);
@@ -42,5 +42,51 @@ class ProductController extends Controller
 
         return redirect()->route('products.create')->with('success', 'Product created successfully!');
     }
+
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+
+        // Cek apakah user pemilik produk
+        if ($product->seller_id !== Auth::id()) {
+            abort(403); // Forbidden
+        }
+
+        return view('products.edit', [
+            'title' => 'Edit Produk',
+            'product' => $product,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+
+        if ($product->seller_id !== Auth::id()) {
+            abort(403);
+        }
+
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            // tambahkan validasi lain sesuai kebutuhan
+        ]);
+
+        $product->update($request->all());
+
+        return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui.');
+    }
+
+    public function myProducts()
+    {
+        $products = Product::where('seller_id', Auth::id())->latest()->get();
+
+        return view('my-products', [
+            'title' => 'Produk Saya',
+            'products' => $products,
+        ]);
+    }
+
+
 }
 

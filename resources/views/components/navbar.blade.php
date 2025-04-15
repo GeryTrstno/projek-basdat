@@ -32,7 +32,7 @@
                                   d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
                         </svg>
                     </a>
-                    <a href="/shop"
+                    <a href="{{ route('products.my') }}"
                        class="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-700 focus:outline-hidden">
                         <span class="absolute -inset-1.5"></span>
                         <span class="sr-only">View cart</span>

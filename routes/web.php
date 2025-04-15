@@ -41,9 +41,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/cart/{id}/increment', [CartController::class, 'increment'])->name('cart.increment');
     Route::patch('/cart/{id}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
 
-    Route::get('/shop', function () {
-       return view('shop', ['title' => 'Create Product', 'categories' => Category::all()]);
+    Route::get('/create', function () {
+       return view('create', ['title' => 'Create Product', 'categories' => Category::all()]);
     });
+
+    Route::get('/my-products', [ProductController::class, 'myProducts'])->name('products.my');
+
 
     Route::get('/edit', function () {
         return view('edit', ['title' => 'Edit Product']);
