@@ -3,19 +3,25 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/home', function () {
 
     $products = Product::latest();
 
     if (request('search')) {
         $products->where('name', 'like', '%' . request('search') . '%');
     }
+
     return view('home', ['title' => 'Home', 'products' => $products->get()]);
-});
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
@@ -38,12 +44,16 @@ Route::get('/edit', function () {
     return view('edit', ['title' => 'Edit Product']);
 });
 
-Route::get('/login-user', function () {
-    return view('login-user', ['title' => 'Login']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+require __DIR__.'/auth.php';
 
 Route::get('/{slug}', function ($slug) {
     $product = Product::with('category', 'seller')->where('slug', $slug)->firstOrFail();
     return view('product', ['title' => 'Product', 'product' => $product]);
 });
-

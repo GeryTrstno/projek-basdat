@@ -1,12 +1,12 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <section class="bg-white dark:bg-gray-200 rounded-2xl">
+    <section class="bg-white rounded-2xl">
         <div class="py-8 px-4 sm:px-6 lg:px-8 mx-auto max-w-screen-xl lg:py-16">
             <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                 @foreach($products as $product)
                     <a href="/{{ $product['slug'] }}">
                         <article
-                            class="h-62 sm:h-80 p-4 sm:p-6 bg-white rounded-lg border border-gray-200 shadow-md  dark:border-gray-50 transition hover:shadow-lg">
+                            class="h-62 sm:h-80 p-4 sm:p-6 bg-white rounded-lg border border-gray-200 shadow-md  transition hover:shadow-lg">
 
                             <div class="flex justify-center mb-3">
                                 <img class="w-full max-w-[140px] sm:max-w-[200px] h-auto object-contain"
