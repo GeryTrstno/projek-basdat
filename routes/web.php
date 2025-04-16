@@ -23,8 +23,6 @@ Route::get('/home', function () {
     return view('home', ['title' => 'Home', 'products' => $products->get()]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 
@@ -46,11 +44,11 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/my-products', [ProductController::class, 'myProducts'])->name('products.my');
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
-    Route::get('/edit', function () {
-        return view('edit', ['title' => 'Edit Product']);
-    });
 });
 
 

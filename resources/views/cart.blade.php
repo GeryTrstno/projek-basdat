@@ -3,6 +3,11 @@
     <section class="bg-white py-8 antialiased   :bg-gray-200 rounded-2xl">
         <div class="py-6 px-4 sm:px-6 lg:px-8 mx-auto max-w-screen-xl lg:py-8">
             <h2 class="text-xl font-semibold text-gray-900 sm:text-2xl">Keranjang Belanja</h2>
+            @if(session('error'))
+                <div class="mt-2 text-center mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
                 <div class="mx-auto w-full flex-1 lg:max-w-2xl xl:max-w-4xl">
                     @foreach($carts as $cart)

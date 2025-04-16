@@ -63,12 +63,17 @@ class CartController extends Controller
 
     public function increment($id)
     {
-        $cart = Cart::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
-        $cart->quantity += 1;
-        $cart->save();
+        $cart = Cart::with('product')->findOrFail($id);
 
-        return back();
+        // Cek apakah jumlah di cart sudah sama dengan stok produk
+        if ($cart->quantity < $cart->product->amount) {
+            $cart->increment('quantity');
+            return back()->with('success', 'Jumlah produk berhasil ditambah.');
+        }
+
+        return back()->with('error', 'Jumlah produk sudah mencapai batas stok!');
     }
+
 
     public function decrement($id)
     {
