@@ -3,7 +3,7 @@
         <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
             <div class="lg:grid lg:gap-8 xl:gap-16">
                 <x-slot:title>{{ $title }}</x-slot:title>
-                <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+                <div class="bg-white  relative shadow-md sm:rounded-lg overflow-hidden">
                     <div class="flex flex-col md:flex-row justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                         <h2 class="text-xl font-semibold text-gray-900 sm:text-2xl">Produk Saya </h2>
                         <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                             <tr>
                                 <th scope="col" class="px-4 py-3">Nama Produk</th>
                                 <th scope="col" class="px-4 py-3">Kategori</th>
@@ -34,7 +34,7 @@
                             <tbody>
                             @foreach($products as $product)
                                 <tr class="border-b dark:border-gray-700">
-                                    <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
                                         {{ $product->name }}</th>
                                     <td class="px-4 py-3">{{ $product->category->name }}</td>
                                     <td class="px-4 py-3">Rp{{ number_format($product->price) }}</td>
