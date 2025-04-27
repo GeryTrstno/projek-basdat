@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/cart/{id}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
 
     Route::get('/create', function () {
-       return view('create', ['title' => 'Create Product', 'categories' => Category::all()]);
+       return view('create', ['title' => 'Buat Produk', 'categories' => Category::all()]);
     });
 
     Route::get('/my-products', [ProductController::class, 'myProducts'])->name('products.my');
